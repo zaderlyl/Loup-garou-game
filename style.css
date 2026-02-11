@@ -186,3 +186,28 @@ button {
 .role-chip.active {
   filter: grayscale(0) drop-shadow(0 0 5px var(--gold));
 }
+
+
+/* Style de la carte de rôle sur le téléphone */
+.role-reveal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #0a0a1a;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+}
+
+.card-inner {
+    width: 250px; height: 350px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 3px solid var(--gold);
+    border-radius: 15px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    transition: transform 0.6s;
+}
+
+.role-icon { font-size: 5rem; margin-bottom: 20px; }
+.role-name { font-size: 2rem; color: var(--gold); letter-spacing: 2px; }
