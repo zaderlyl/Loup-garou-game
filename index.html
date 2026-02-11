@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiercelieux - Multijoueur</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <div class="background-decor">
+        <div class="stars"></div>
+        <div class="moon"></div>
+        <div class="forest"></div>
+        <div id="village-square"></div>
+        <div class="fog"></div>
+    </div>
+
+    <div id="connection-panel" class="modal">
+        <div id="qrcode"></div>
+        <p>Scannez pour rejoindre le village</p>
+        <small id="peer-id">Génération du code...</small>
+    </div>
+
+    <div class="ui-layer">
+        <div class="roles-bar">
+            <div class="role-chip" data-role="loup">🐺</div>
+            <div class="role-chip" data-role="voyante">🔮</div>
+            <div class="role-chip" data-role="sorciere">🧪</div>
+            <div class="role-chip" data-role="chasseur">🔫</div>
+        </div>
+
+        <div class="bottom-controls">
+            <div class="input-group" id="join-form">
+                <input type="text" id="player-name" placeholder="Nom du villageois..." maxlength="12">
+                <button id="action-btn">Rejoindre</button>
+            </div>
+            <button id="start-game" class="btn-play" style="display:none;">Commencer la partie</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
