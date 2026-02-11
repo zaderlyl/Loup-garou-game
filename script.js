@@ -87,3 +87,31 @@ function createAvatar(name) {
     avatar.innerHTML = `<span class="initials">${name.substring(0, 2).toUpperCase()}</span><span class="name-tag">${name}</span>`;
     villageSquare.appendChild(avatar);
 }
+
+
+
+// Côté JOUEUR : Quand il reçoit son rôle
+conn.on('data', (data) => {
+    if (data.type === 'ROLE_ASSIGN') {
+        renderPlayerInterface(data.role);
+    }
+});
+
+function renderPlayerInterface(roleName) {
+    let icon = "👥"; // Par défaut Villageois
+    if(roleName === "Loup-Garou") icon = "🐺";
+    if(roleName === "Voyante") icon = "🔮";
+    if(roleName === "Sorcière") icon = "🧪";
+
+    document.body.innerHTML = `
+        <div class="role-reveal">
+            <div class="card-inner">
+                <div class="role-icon">${icon}</div>
+                <div class="role-name">${roleName}</div>
+                <p>Garde le secret...</p>
+            </div>
+            <div class="player-actions" id="actions">
+                </div>
+        </div>
+    `;
+}
